@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#091512">
+  <meta name="description" content="Una exploración interactiva del cálculo vectorial aplicado a la ubicación y orientación de aerogeneradores.">
+  <title>Viento en contexto — Ingeniería eólica</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header" id="inicio">
+    <a class="brand" href="#inicio" aria-label="Viento en contexto, inicio">
+      <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span>viento<span class="brand-light">/</span>contexto</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="#enfoque">Enfoque</a>
+      <a href="#metodo">Método</a>
+      <a href="#simulador">Simulador</a>
+      <a href="#hallazgos">Hallazgos</a>
+    </nav>
+    <a class="header-cta" href="#simulador">Explorar el modelo <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-image" aria-hidden="true"></div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-content page-width">
+        <p class="eyebrow hero-eyebrow"><span class="status-dot"></span> Ingeniería para un futuro renovable</p>
+        <h1 id="hero-title">El viento no se<br>adivina. <em>Se entiende.</em></h1>
+        <p class="hero-copy">Cálculo vectorial para leer el viento, orientar aerogeneradores y tomar mejores decisiones en cada parque.</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="#enfoque">Descubrir el enfoque <span aria-hidden="true">↘</span></a>
+          <a class="text-link hero-secondary" href="#simulador"><span class="play-icon" aria-hidden="true">▶</span> Ver simulación</a>
+        </div>
+        <div class="hero-footnote"><span>ANÁLISIS VECTORIAL APLICADO</span><span>PROYECTO UNIVERSITARIO · ENERGÍA EÓLICA</span></div>
+      </div>
+      <div class="hero-index" aria-hidden="true"><span>01</span><i></i><span>06</span></div>
+      <a class="scroll-cue" href="#enfoque"><span></span> Desliza para explorar</a>
+    </section>
+
+    <section class="intro section-pad" id="enfoque">
+      <div class="page-width">
+        <div class="section-kicker reveal"><span>01 / EL RETO</span><span class="kicker-line"></span><span>CONTEXTO</span></div>
+        <div class="intro-grid">
+          <h2 class="display-title reveal">Cada grado<br>cuenta.</h2>
+          <div class="intro-copy reveal">
+            <p class="lead">Un aerogenerador bien ubicado no solo recibe viento. Lo recibe con la dirección, intensidad y continuidad adecuadas.</p>
+            <p>La velocidad y el rumbo del viento cambian según el terreno y el tiempo. Cuando las turbinas no están orientadas de acuerdo con ese flujo, parte de la energía disponible se pierde y las estelas de unas máquinas pueden afectar a otras.</p>
+            <p>El cálculo vectorial permite representar esas condiciones con claridad y convertir mediciones en criterios para evaluar orientación y distribución.</p>
+            <a class="underlined-link" href="#metodo">Conoce el método <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="intro-stats reveal">
+          <div class="stat-item"><strong>01</strong><span>Dirección<br>del flujo</span></div>
+          <div class="stat-item"><strong>02</strong><span>Velocidad<br>del viento</span></div>
+          <div class="stat-item"><strong>03</strong><span>Orientación<br>de la turbina</span></div>
+          <div class="stat-note">Tres variables. Una lectura<br>más precisa del recurso.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="objectives section-pad">
+      <div class="page-width objectives-grid">
+        <div class="objectives-heading reveal">
+          <div class="section-kicker section-kicker-light"><span>02 / PROPÓSITO</span><span class="kicker-line"></span></div>
+          <h2 class="display-title">Del dato<br>a la decisión.</h2>
+          <p>Un marco sencillo para analizar cómo el viento puede orientar el diseño de un parque eólico.</p>
+        </div>
+        <div class="objectives-list">
+          <article class="objective-card reveal">
+            <span class="objective-number">01</span>
+            <div><h3>Objetivo general</h3><p>Aplicar herramientas de cálculo vectorial para representar el viento y estimar cómo su orientación influye en el aprovechamiento energético de aerogeneradores.</p></div>
+            <span class="objective-icon" aria-hidden="true">↗</span>
+          </article>
+          <article class="objective-card reveal">
+            <span class="objective-number">02</span>
+            <div><h3>Describir el recurso</h3><p>Separar la velocidad en componentes para interpretar dirección y magnitud en un sistema de referencia común.</p></div>
+            <span class="objective-icon" aria-hidden="true">⌁</span>
+          </article>
+          <article class="objective-card reveal">
+            <span class="objective-number">03</span>
+            <div><h3>Comparar orientaciones</h3><p>Relacionar el vector del viento con el eje de captura de la turbina y estimar su alineación relativa.</p></div>
+            <span class="objective-icon" aria-hidden="true">⊙</span>
+          </article>
+          <article class="objective-card reveal">
+            <span class="objective-number">04</span>
+            <div><h3>Apoyar decisiones</h3><p>Usar una visualización interactiva como herramienta didáctica para discutir ubicaciones y orientaciones posibles.</p></div>
+            <span class="objective-icon" aria-hidden="true">⌖</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="vector-section section-pad" id="vectores">
+      <div class="page-width">
+        <div class="section-kicker reveal"><span>03 / LECTURA VECTORIAL</span><span class="kicker-line"></span><span>EL LENGUAJE DEL VIENTO</span></div>
+        <div class="vector-heading">
+          <h2 class="display-title reveal">Una dirección.<br>Más información.</h2>
+          <p class="reveal">Un vector resume dos aspectos inseparables del viento: hacia dónde se mueve y con qué intensidad.</p>
+        </div>
+        <div class="concept-grid">
+          <article class="concept-card concept-feature reveal">
+            <span class="concept-symbol" aria-hidden="true">v⃗</span>
+            <span class="concept-label">01 — REPRESENTACIÓN</span>
+            <h3>El viento como vector</h3>
+            <p>La flecha representa velocidad: su orientación indica el rumbo y su longitud, la magnitud del flujo.</p>
+            <div class="mini-vector-graphic" aria-hidden="true"><span class="axis-x"></span><span class="axis-y"></span><span class="vector-arrow"></span><span class="vector-label">v⃗</span></div>
+          </article>
+          <article class="concept-card reveal">
+            <span class="concept-symbol small-symbol" aria-hidden="true">x · y</span>
+            <span class="concept-label">02 — COMPONENTES</span>
+            <h3>Separar para comprender</h3>
+            <p>Las componentes horizontal y vertical permiten calcular el efecto combinado del viento sobre un plano.</p>
+            <div class="component-pills"><span>v<sub>x</sub> · este / oeste</span><span>v<sub>y</sub> · norte / sur</span></div>
+          </article>
+          <article class="concept-card reveal">
+            <span class="concept-symbol small-symbol" aria-hidden="true">∑</span>
+            <span class="concept-label">03 — RESULTANTE</span>
+            <h3>Combinar condiciones</h3>
+            <p>La suma vectorial integra aportes de distintas mediciones para estimar una dirección y velocidad resultantes.</p>
+            <div class="resultant-mini"><span>v⃗₁ + v⃗₂</span><i aria-hidden="true">→</i><b>v⃗ᵣ</b></div>
+          </article>
+          <article class="concept-card reveal">
+            <span class="concept-symbol small-symbol" aria-hidden="true">θ</span>
+            <span class="concept-label">04 — ALINEACIÓN</span>
+            <h3>Medir el ángulo</h3>
+            <p>El ángulo entre el flujo y el eje de la turbina ayuda a comparar qué tan favorable es su orientación.</p>
+            <div class="angle-meter" aria-hidden="true"><span></span><i></i><b>θ</b></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="model-section section-pad" id="metodo">
+      <div class="page-width">
+        <div class="model-top">
+          <div class="section-kicker section-kicker-light reveal"><span>04 / MODELO</span><span class="kicker-line"></span><span>DE LA MEDICIÓN AL CÁLCULO</span></div>
+          <h2 class="display-title reveal">Matemática<br>que se mueve.</h2>
+          <p class="model-intro reveal">Con magnitud y ángulo, describimos el flujo en coordenadas; después, comparamos su dirección con la orientación de la máquina.</p>
+        </div>
+        <div class="formula-grid">
+          <article class="formula-card reveal"><span>01 / COMPONENTES</span><div class="formula">v<sub>x</sub> = V cos θ<br>v<sub>y</sub> = V sin θ</div><p>Proyección del viento sobre los ejes horizontal y vertical.</p></article>
+          <article class="formula-card reveal"><span>02 / MAGNITUD</span><div class="formula">|v⃗| = √(v<sub>x</sub>² + v<sub>y</sub>²)</div><p>La rapidez total se obtiene a partir de sus componentes.</p></article>
+          <article class="formula-card reveal"><span>03 / RESULTANTE</span><div class="formula">v⃗ᵣ = v⃗₁ + v⃗₂</div><p>Se suman componentes homólogas para combinar aportes.</p></article>
+          <article class="formula-card reveal"><span>04 / ÁNGULO</span><div class="formula">cos φ = (a⃗ · b⃗)<br><small>────────────</small><br>|a⃗| |b⃗|</div><p>El producto punto relaciona dos direcciones y su alineación.</p></article>
+        </div>
+        <div class="example-strip reveal"><span class="example-tag">EJEMPLO</span><p>Si un viento de <strong>8 m/s</strong> sopla a <strong>30°</strong>, sus componentes son <strong>v<sub>x</sub> ≈ 6,9 m/s</strong> y <strong>v<sub>y</sub> = 4 m/s</strong>. Ambas describen el mismo flujo desde dos ejes.</p><span class="example-arrow" aria-hidden="true">↗</span></div>
+        <p class="model-caveat">La estimación de alineación es un indicador geométrico didáctico; no sustituye un modelo aerodinámico ni un estudio de emplazamiento.</p>
+      </div>
+    </section>
+
+    <section class="simulator-section section-pad" id="simulador">
+      <div class="page-width">
+        <div class="section-kicker reveal"><span>05 / LABORATORIO INTERACTIVO</span><span class="kicker-line"></span><span>AJUSTA EL FLUJO</span></div>
+        <div class="simulator-heading">
+          <div><h2 class="display-title reveal">Mueve el viento.</h2><p class="reveal">Modifica magnitud y dirección. Observa cómo cambia el flujo y cómo se actualiza la lectura vectorial.</p></div>
+          <span class="live-badge reveal"><span class="status-dot"></span> MODELO EN VIVO</span>
+        </div>
+        <div class="simulator-shell reveal">
+          <div class="sim-controls">
+            <div class="controls-top"><span>PARÁMETROS DE ENTRADA</span><span class="units-label">V · m/s &nbsp; / &nbsp; θ · grados</span></div>
+            <div class="vector-input-group">
+              <div class="vector-input-title"><span class="vector-key key-current">A</span><div><h3>Flujo inicial</h3><p>Condición de referencia</p></div></div>
+              <label>Magnitud <span>m/s</span><input id="start-speed" type="number" min="0" max="30" step="0.5" value="8" inputmode="decimal"></label>
+              <label>Dirección <span>°</span><input id="start-angle" type="number" min="-180" max="180" step="1" value="20" inputmode="decimal"></label>
+            </div>
+            <div class="vector-input-group">
+              <div class="vector-input-title"><span class="vector-key key-target">B</span><div><h3>Flujo objetivo</h3><p>Nueva condición de viento</p></div></div>
+              <label>Magnitud <span>m/s</span><input id="end-speed" type="number" min="0" max="30" step="0.5" value="12" inputmode="decimal"></label>
+              <label>Dirección <span>°</span><input id="end-angle" type="number" min="-180" max="180" step="1" value="65" inputmode="decimal"></label>
+            </div>
+            <div class="sim-actions"><button class="button button-dark" id="animate-button" type="button">Aplicar cambio <span aria-hidden="true">↗</span></button><button class="reset-button" id="reset-button" type="button">Restablecer valores</button></div>
+            <p class="input-hint" id="input-message" aria-live="polite">Los campos admiten de 0 a 30 m/s y de −180° a 180°.</p>
+          </div>
+          <div class="flow-panel">
+            <div class="flow-topline"><span><i class="flow-live-dot"></i> FLUJO DE VIENTO</span><span id="flow-state">TRANSICIÓN LISTA</span></div>
+            <div class="flow-canvas-wrap">
+              <canvas id="wind-canvas" aria-label="Visualización animada del cambio de dirección e intensidad del viento"></canvas>
+              <div class="canvas-overlay">
+                <span class="flow-compass">N <i></i></span>
+                <div class="turbine turbine-one" aria-hidden="true"><i></i><b></b><span></span></div>
+                <div class="turbine turbine-two" aria-hidden="true"><i></i><b></b><span></span></div>
+                <div class="turbine turbine-three" aria-hidden="true"><i></i><b></b><span></span></div>
+                <div class="wind-readout"><span>VECTOR RESULTANTE</span><strong id="vector-value">8,0 <small>m/s</small></strong><span id="direction-value">020° · ENE</span></div>
+              </div>
+            </div>
+            <div class="vector-legend"><span><i class="legend-dot legend-a"></i> A · inicial</span><span><i class="legend-dot legend-b"></i> B · objetivo</span><span><i class="legend-arrow"></i> Flujo actual</span></div>
+          </div>
+          <div class="sim-readings">
+            <div><span>COMPONENTE X</span><strong id="component-x">7,5 <small>m/s</small></strong></div>
+            <div><span>COMPONENTE Y</span><strong id="component-y">2,7 <small>m/s</small></strong></div>
+            <div><span>CAMBIO ANGULAR</span><strong id="angle-delta">45°</strong></div>
+            <div><span>ALINEACIÓN ESTIMADA</span><strong id="alignment-reading">87<small>%</small></strong></div>
+          </div>
+        </div>
+        <p class="sim-caption">La animación interpola entre las dos condiciones ingresadas. El ángulo se mide desde el eje +X (este), en sentido antihorario; la alineación compara el rumbo con el eje de referencia de 0°.</p>
+      </div>
+    </section>
+
+    <section class="insights-section section-pad" id="hallazgos">
+      <div class="page-width">
+        <div class="section-kicker reveal"><span>06 / LECTURA DE RESULTADOS</span><span class="kicker-line"></span><span>DECISIONES CON CONTEXTO</span></div>
+        <div class="insights-heading"><h2 class="display-title reveal">Una señal clara<br>para cada decisión.</h2><p class="reveal">Métricas demostrativas que conectan la geometría del viento con una lectura sencilla del potencial energético.</p></div>
+        <div class="dashboard">
+          <article class="metric-card metric-primary reveal">
+            <div class="metric-heading"><span>DIRECCIÓN DEL VIENTO</span><span class="metric-icon">↗</span></div>
+            <strong id="metric-direction">020<span>°</span></strong>
+            <div class="compass-graphic" aria-hidden="true"><i></i><b></b><span>N</span><em>E</em></div>
+            <p>Rumbo actual del flujo resultante</p>
+          </article>
+          <article class="metric-card reveal">
+            <div class="metric-heading"><span>VELOCIDAD RESULTANTE</span><span class="metric-icon">⌁</span></div>
+            <strong id="metric-speed">8,0 <small>m/s</small></strong>
+            <div class="metric-sparkline" aria-hidden="true"><svg viewBox="0 0 180 38" preserveAspectRatio="none"><path d="M0 29 C18 26 19 13 38 19 S59 31 78 21 S100 7 119 14 S147 29 180 5"></path></svg></div>
+            <p>Magnitud del vector de viento</p>
+          </article>
+          <article class="metric-card reveal">
+            <div class="metric-heading"><span>EFICIENCIA RELATIVA</span><span class="metric-icon">◎</span></div>
+            <strong id="metric-efficiency">87<span>%</span></strong>
+            <div class="meter-track"><span id="efficiency-bar"></span></div>
+            <p id="efficiency-note">Proxy geométrico de orientación</p>
+          </article>
+          <article class="metric-card reveal">
+            <div class="metric-heading"><span>ENERGÍA RELATIVA</span><span class="metric-icon">✳</span></div>
+            <strong id="metric-energy">69<span>/100</span></strong>
+            <div class="energy-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <p>Índice ilustrativo de recurso y alineación</p>
+          </article>
+          <article class="metric-card location-card reveal">
+            <div class="metric-heading"><span>SELECCIÓN DEL SITIO</span><span class="metric-icon">⌖</span></div>
+            <strong>Por evaluar</strong>
+            <div class="location-indicator"><i></i><i></i><i></i><i></i><i></i></div>
+            <p>Requiere topografía y series locales de viento</p>
+          </article>
+        </div>
+        <div class="interpretation reveal">
+          <span class="interpretation-mark">i</span>
+          <div><strong>¿Cómo leerlo?</strong><p>La alineación aumenta cuando el rumbo del viento se aproxima al eje idealizado de referencia. La energía relativa combina esa alineación con la magnitud; no representa producción eléctrica real.</p></div>
+          <a href="#cierre" aria-label="Ir a la conclusión">↘</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="conclusion-section section-pad" id="cierre">
+      <div class="page-width conclusion-grid">
+        <div class="conclusion-main reveal"><span class="conclusion-label">CONCLUSIÓN</span><h2 class="display-title">Diseñar mejor<br>empieza por<br><em>leer el viento.</em></h2></div>
+        <div class="conclusion-copy reveal"><p class="lead">El cálculo vectorial ofrece una forma directa de traducir dirección y velocidad en información útil para el diseño eólico.</p><p>Al descomponer y comparar vectores, podemos visualizar cambios de flujo, cuantificar la alineación con una turbina y formular preguntas más precisas sobre ubicación y orientación.</p><p>En un proyecto real, estas herramientas se complementan con series meteorológicas, topografía, turbulencia, estelas, restricciones ambientales y modelos de producción. La matemática abre el análisis; los datos del sitio lo hacen confiable.</p><a class="underlined-link" href="#exposicion">Ver puntos para exponer <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="takeaways section-pad" id="exposicion">
+      <div class="page-width">
+        <div class="takeaway-top reveal"><div><span class="conclusion-label">PARA PRESENTAR</span><h2 class="display-title">La idea, en breve.</h2></div><span class="takeaway-count">05 PUNTOS<br>CLAVE</span></div>
+        <div class="takeaway-list">
+          <div class="takeaway-row reveal"><span>01</span><p>El viento se describe mediante un vector con magnitud y dirección.</p><span class="takeaway-arrow">↗</span></div>
+          <div class="takeaway-row reveal"><span>02</span><p>Sus componentes permiten analizar el flujo en los ejes del terreno.</p><span class="takeaway-arrow">↗</span></div>
+          <div class="takeaway-row reveal"><span>03</span><p>La suma vectorial combina mediciones y condiciones de viento.</p><span class="takeaway-arrow">↗</span></div>
+          <div class="takeaway-row reveal"><span>04</span><p>El ángulo entre viento y turbina ayuda a evaluar su alineación.</p><span class="takeaway-arrow">↗</span></div>
+          <div class="takeaway-row reveal"><span>05</span><p>La ubicación óptima requiere integrar cálculo, datos del sitio e ingeniería.</p><span class="takeaway-arrow">↗</span></div>
+        </div>
+        <div class="closing-note reveal"><span class="closing-icon" aria-hidden="true">✳</span><p>Una mejor lectura del viento puede ser el primer paso hacia una energía mejor aprovechada.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-width footer-inner">
+      <a class="brand footer-brand" href="#inicio"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>viento<span class="brand-light">/</span>contexto</span></a>
+      <span>Proyecto académico · Cálculo vectorial aplicado a energía eólica</span>
+      <a href="#inicio">Volver arriba ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
