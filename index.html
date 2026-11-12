@@ -10,9 +10,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="model.js" defer></script>
+  <script src="renderer.js" defer></script>
   <script src="script.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#laboratorio">Saltar al laboratorio</a>
   <header class="site-header" id="inicio">
     <a class="brand" href="#inicio" aria-label="Viento en contexto, inicio">
       <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -23,11 +26,11 @@
     </button>
     <nav class="main-nav" aria-label="Navegación principal">
       <a href="#enfoque">Enfoque</a>
-      <a href="#metodo">Método</a>
+      <a href="#laboratorio">Vectores</a>
       <a href="#simulador">Simulador</a>
       <a href="#hallazgos">Hallazgos</a>
     </nav>
-    <a class="header-cta" href="#simulador">Explorar el modelo <span aria-hidden="true">↗</span></a>
+    <button title="Modo exposición" class="header-cta" id="presentation-toggle" type="button" aria-pressed="false">Modo exposición ↗</button>
   </header>
 
   <main>
@@ -37,7 +40,7 @@
       <div class="hero-content page-width">
         <p class="eyebrow hero-eyebrow"><span class="status-dot"></span> Ingeniería para un futuro renovable</p>
         <h1 id="hero-title">El viento no se<br>adivina. <em>Se entiende.</em></h1>
-        <p class="hero-copy">Cálculo vectorial para leer el viento, orientar aerogeneradores y tomar mejores decisiones en cada parque.</p>
+        <p class="hero-copy">Optimización de parques eólicos mediante cálculo vectorial. Un laboratorio para explorar La Guajira, del vector a una mejor distribución.</p>
         <div class="hero-actions">
           <a class="button button-light" href="#enfoque">Descubrir el enfoque <span aria-hidden="true">↘</span></a>
           <a class="text-link hero-secondary" href="#simulador"><span class="play-icon" aria-hidden="true">▶</span> Ver simulación</a>
@@ -56,8 +59,9 @@
           <div class="intro-copy reveal">
             <p class="lead">Un aerogenerador bien ubicado no solo recibe viento. Lo recibe con la dirección, intensidad y continuidad adecuadas.</p>
             <p>La velocidad y el rumbo del viento cambian según el terreno y el tiempo. Cuando las turbinas no están orientadas de acuerdo con ese flujo, parte de la energía disponible se pierde y las estelas de unas máquinas pueden afectar a otras.</p>
-            <p>El cálculo vectorial permite representar esas condiciones con claridad y convertir mediciones en criterios para evaluar orientación y distribución.</p>
-            <a class="underlined-link" href="#metodo">Conoce el método <span aria-hidden="true">↗</span></a>
+            <p>En La Guajira, el IDEAM destaca la presencia del recurso eólico y la influencia de los alisios. Este laboratorio estudia la geometría del problema con valores hipotéticos, no con una serie meteorológica local.</p>
+            <p class="source-note">Contexto: <a href="https://ideam.gov.co/atencion-y-servicios-a-la-ciudadania/preguntas-frecuentes/en-colombia-donde-hace-mas-viento" target="_blank" rel="noopener">IDEAM · viento en Colombia ↗</a>. El diseño real también requiere topografía, infraestructura, evaluación ambiental y participación de las comunidades.</p>
+            <a class="underlined-link" id="method-link" href="#metodo">Conoce el método <span aria-hidden="true">↗</span></a>
           </div>
         </div>
         <div class="intro-stats reveal">
@@ -69,7 +73,7 @@
       </div>
     </section>
 
-    <section class="objectives section-pad">
+    <section class="objectives section-pad" id="objetivos">
       <div class="page-width objectives-grid">
         <div class="objectives-heading reveal">
           <div class="section-kicker section-kicker-light"><span>02 / PROPÓSITO</span><span class="kicker-line"></span></div>
@@ -125,9 +129,9 @@
           </article>
           <article class="concept-card reveal">
             <span class="concept-symbol small-symbol" aria-hidden="true">∑</span>
-            <span class="concept-label">03 — RESULTANTE</span>
-            <h3>Combinar condiciones</h3>
-            <p>La suma vectorial integra aportes de distintas mediciones para estimar una dirección y velocidad resultantes.</p>
+            <span class="concept-label">03 — OPERACIONES</span>
+            <h3>Operar con vectores</h3>
+            <p>La suma combina vectores algebraicamente. Dos mediciones temporales no se suman para obtener un nuevo viento: su diferencia expresa el cambio y su media resume las muestras.</p>
             <div class="resultant-mini"><span>v⃗₁ + v⃗₂</span><i aria-hidden="true">→</i><b>v⃗ᵣ</b></div>
           </article>
           <article class="concept-card reveal">
@@ -151,7 +155,7 @@
         <div class="formula-grid">
           <article class="formula-card reveal"><span>01 / COMPONENTES</span><div class="formula">v<sub>x</sub> = V cos θ<br>v<sub>y</sub> = V sin θ</div><p>Proyección del viento sobre los ejes horizontal y vertical.</p></article>
           <article class="formula-card reveal"><span>02 / MAGNITUD</span><div class="formula">|v⃗| = √(v<sub>x</sub>² + v<sub>y</sub>²)</div><p>La rapidez total se obtiene a partir de sus componentes.</p></article>
-          <article class="formula-card reveal"><span>03 / RESULTANTE</span><div class="formula">v⃗ᵣ = v⃗₁ + v⃗₂</div><p>Se suman componentes homólogas para combinar aportes.</p></article>
+          <article class="formula-card reveal"><span>03 / RESULTANTE</span><div class="formula">v⃗ᵣ = v⃗₁ + v⃗₂</div><p>Suma algebraica por componentes; no es la combinación física de dos mediciones temporales.</p></article>
           <article class="formula-card reveal"><span>04 / ÁNGULO</span><div class="formula">cos φ = (a⃗ · b⃗)<br><small>────────────</small><br>|a⃗| |b⃗|</div><p>El producto punto relaciona dos direcciones y su alineación.</p></article>
         </div>
         <div class="example-strip reveal"><span class="example-tag">EJEMPLO</span><p>Si un viento de <strong>8 m/s</strong> sopla a <strong>30°</strong>, sus componentes son <strong>v<sub>x</sub> ≈ 6,9 m/s</strong> y <strong>v<sub>y</sub> = 4 m/s</strong>. Ambas describen el mismo flujo desde dos ejes.</p><span class="example-arrow" aria-hidden="true">↗</span></div>
@@ -159,102 +163,64 @@
       </div>
     </section>
 
-    <section class="simulator-section section-pad" id="simulador">
+    <section class="lab-section section-pad" id="laboratorio">
       <div class="page-width">
-        <div class="section-kicker reveal"><span>05 / LABORATORIO INTERACTIVO</span><span class="kicker-line"></span><span>AJUSTA EL FLUJO</span></div>
-        <div class="simulator-heading">
-          <div><h2 class="display-title reveal">Mueve el viento.</h2><p class="reveal">Modifica magnitud y dirección. Observa cómo cambia el flujo y cómo se actualiza la lectura vectorial.</p></div>
-          <span class="live-badge reveal"><span class="status-dot"></span> MODELO EN VIVO</span>
+        <div class="section-kicker"><span>04 / LABORATORIO VECTORIAL</span><span class="kicker-line"></span><span>MATEMÁTICA EXACTA</span></div>
+        <div class="work-heading"><div><h2 class="display-title">Cada vector.<br>En su dirección.</h2><p>De las componentes al flujo. Edita una condición para verla inmediatamente.</p></div><label class="preset-label" for="scenario">Escenario<select id="scenario"><option value="example">Ejemplo (8, 3) → (4, 10)</option><option value="east">Viento del oeste · hacia el este</option><option value="north">Hacia el norte · 90°</option><option value="crossing">Cruce 170° → −170°</option><option value="zero">Calma · vector nulo</option></select></label></div>
+        <div class="lab-shell">
+          <div class="lab-controls"><div class="segmented" role="group" aria-label="Coordenadas"><button id="mode-cartesian" type="button" aria-pressed="true">Cartesianas</button><button id="mode-polar" type="button" aria-pressed="false">Polares</button></div><fieldset class="vector-editor"><legend><span class="vector-key key-current">A</span>A · Condición inicial</legend>
+ <div class="input-pair cartesian-fields"><label for="a-x">Componente X <small>m/s</small></label><input id="a-x" type="number" min="-30" max="30" step="any" value="8" aria-describedby="input-message"><label for="a-y">Componente Y <small>m/s</small></label><input id="a-y" type="number" min="-30" max="30" step="any" value="3" aria-describedby="input-message"></div>
+ <div class="input-pair polar-fields" hidden><label for="a-speed">Magnitud <small>m/s</small></label><input id="a-speed" type="number" min="0" max="30" step="any" aria-describedby="input-message"><label for="a-angle">Ángulo <small>°</small></label><input id="a-angle" type="number" min="-180" max="180" step="any" aria-describedby="input-message"></div>
+ <p class="vector-summary" id="a-summary"></p><button type="button" class="quiet-button" id="use-a">Mostrar viento A</button></fieldset><fieldset class="vector-editor"><legend><span class="vector-key key-target">B</span>B · Condición final</legend>
+ <div class="input-pair cartesian-fields"><label for="b-x">Componente X <small>m/s</small></label><input id="b-x" type="number" min="-30" max="30" step="any" value="4" aria-describedby="input-message"><label for="b-y">Componente Y <small>m/s</small></label><input id="b-y" type="number" min="-30" max="30" step="any" value="10" aria-describedby="input-message"></div>
+ <div class="input-pair polar-fields" hidden><label for="b-speed">Magnitud <small>m/s</small></label><input id="b-speed" type="number" min="0" max="30" step="any" aria-describedby="input-message"><label for="b-angle">Ángulo <small>°</small></label><input id="b-angle" type="number" min="-180" max="180" step="any" aria-describedby="input-message"></div>
+ <p class="vector-summary" id="b-summary"></p><button type="button" class="quiet-button" id="use-b">Mostrar viento B</button></fieldset>
+            <p id="input-message" class="field-message" role="status">Magnitud máxima: 30 m/s. Ángulos desde +X, antihorarios.</p>
+            <div class="action-row"><button class="button button-dark" id="animate-button" type="button">Transición actual → B</button><button class="quiet-button" id="reset-button" type="button">Restablecer</button></div>
+          </div>
+          <div class="plot-area"><div class="plot-toolbar"><span id="flow-state" role="status">Viento A</span><label for="operation">Dibujar<select id="operation"><option value="difference">Cambio B − A</option><option value="sum">Suma A + B</option><option value="none">Solo condiciones</option></select></label></div><canvas id="vector-canvas" role="img" aria-label="Plano cartesiano de los vectores A, B, actual y operación seleccionada" aria-describedby="math-summary">Tu navegador necesita Canvas para dibujar el plano; los resultados están disponibles debajo.</canvas><div class="plot-legend"><span class="legend-a">— A</span><span class="legend-b">— B</span><span class="legend-current">— Actual</span><span class="legend-result">— Operación</span></div><p class="technical-note">Misma escala en X e Y · m/s · 0° este / 90° norte. La interpolación polar es una transición visual, no una suma física.</p></div>
         </div>
-        <div class="simulator-shell reveal">
-          <div class="sim-controls">
-            <div class="controls-top"><span>PARÁMETROS DE ENTRADA</span><span class="units-label">V · m/s &nbsp; / &nbsp; θ · grados</span></div>
-            <div class="vector-input-group">
-              <div class="vector-input-title"><span class="vector-key key-current">A</span><div><h3>Flujo inicial</h3><p>Condición de referencia</p></div></div>
-              <label>Magnitud <span>m/s</span><input id="start-speed" type="number" min="0" max="30" step="0.5" value="8" inputmode="decimal"></label>
-              <label>Dirección <span>°</span><input id="start-angle" type="number" min="-180" max="180" step="1" value="20" inputmode="decimal"></label>
-            </div>
-            <div class="vector-input-group">
-              <div class="vector-input-title"><span class="vector-key key-target">B</span><div><h3>Flujo objetivo</h3><p>Nueva condición de viento</p></div></div>
-              <label>Magnitud <span>m/s</span><input id="end-speed" type="number" min="0" max="30" step="0.5" value="12" inputmode="decimal"></label>
-              <label>Dirección <span>°</span><input id="end-angle" type="number" min="-180" max="180" step="1" value="65" inputmode="decimal"></label>
-            </div>
-            <div class="sim-actions"><button class="button button-dark" id="animate-button" type="button">Aplicar cambio <span aria-hidden="true">↗</span></button><button class="reset-button" id="reset-button" type="button">Restablecer valores</button></div>
-            <p class="input-hint" id="input-message" aria-live="polite">Los campos admiten de 0 a 30 m/s y de −180° a 180°.</p>
-          </div>
-          <div class="flow-panel">
-            <div class="flow-topline"><span><i class="flow-live-dot"></i> FLUJO DE VIENTO</span><span id="flow-state">TRANSICIÓN LISTA</span></div>
-            <div class="flow-canvas-wrap">
-              <canvas id="wind-canvas" aria-label="Visualización animada del cambio de dirección e intensidad del viento"></canvas>
-              <div class="canvas-overlay">
-                <span class="flow-compass">N <i></i></span>
-                <div class="turbine turbine-one" aria-hidden="true"><i></i><b></b><span></span></div>
-                <div class="turbine turbine-two" aria-hidden="true"><i></i><b></b><span></span></div>
-                <div class="turbine turbine-three" aria-hidden="true"><i></i><b></b><span></span></div>
-                <div class="wind-readout"><span>VECTOR RESULTANTE</span><strong id="vector-value">8,0 <small>m/s</small></strong><span id="direction-value">020° · ENE</span></div>
-              </div>
-            </div>
-            <div class="vector-legend"><span><i class="legend-dot legend-a"></i> A · inicial</span><span><i class="legend-dot legend-b"></i> B · objetivo</span><span><i class="legend-arrow"></i> Flujo actual</span></div>
-          </div>
-          <div class="sim-readings">
-            <div><span>COMPONENTE X</span><strong id="component-x">7,5 <small>m/s</small></strong></div>
-            <div><span>COMPONENTE Y</span><strong id="component-y">2,7 <small>m/s</small></strong></div>
-            <div><span>CAMBIO ANGULAR</span><strong id="angle-delta">45°</strong></div>
-            <div><span>ALINEACIÓN ESTIMADA</span><strong id="alignment-reading">87<small>%</small></strong></div>
-          </div>
+        <div class="math-results" id="math-summary" aria-live="off">
+          <article><span>|A| · dirección</span><strong id="result-a">—</strong></article><article><span>|B| · dirección</span><strong id="result-b">—</strong></article><article><span>A + B · suma algebraica</span><strong id="result-sum">—</strong></article><article><span>B − A · cambio de velocidad</span><strong id="result-difference">—</strong></article><article><span>A · B · producto punto</span><strong id="result-dot">—</strong></article><article><span>(A × B)z · perpendicular</span><strong id="result-cross">—</strong></article><article><span>Ángulo entre A y B</span><strong id="result-angle">—</strong></article><article><span>Viento actual · componentes</span><strong id="result-current">—</strong></article>
         </div>
-        <p class="sim-caption">La animación interpola entre las dos condiciones ingresadas. El ángulo se mide desde el eje +X (este), en sentido antihorario; la alineación compara el rumbo con el eje de referencia de 0°.</p>
+        <details class="model-details"><summary>Qué significa cada operación</summary><div class="details-grid"><p><b>Magnitud y dirección.</b> |v| = √(x² + y²), θ = atan2(y, x). La dirección del vector nulo y su ángulo con otro vector no están definidos. El sentido lo indica la punta de la flecha.</p><p><b>Producto punto.</b> A · B = AₓBₓ + AᵧBᵧ. φ = acos[(A · B)/(|A||B|)]. Relaciona direcciones y permite medir desalineación.</p><p><b>Producto cruz.</b> En el plano, (A × B)z = AₓBᵧ − AᵧBₓ. Un valor positivo sale del plano (+Z); uno negativo entra (−Z). No representa una velocidad de viento.</p><p><b>Mediciones sucesivas.</b> B − A es el cambio de velocidad, no una aceleración sin intervalo temporal. (A + B)/2 es la media de dos muestras con igual peso. A + B se muestra como aprendizaje algebraico.</p></div></details>
+      </div>
+    </section>
+    <section class="simulator-section section-pad" id="simulador">
+      <div class="page-width"><div class="section-kicker"><span>05 / PARQUE EXPERIMENTAL</span><span class="kicker-line"></span><span>MODELO SIMPLIFICADO</span></div>
+        <div class="work-heading"><div><h2 class="display-title">De orientar<br>a optimizar.</h2><p>Seis turbinas. Un terreno de 1,6 × 1,6 km. Una decisión que puedes medir.</p></div><a href="#laboratorio" id="edit-wind-link" class="underlined-link">Abrir plano vectorial ↗</a></div>
+        <div class="park-wind-controls">
+          <div><span class="control-label" id="park-edit-label">Editar condición A</span><div class="segmented" role="group" aria-label="Condición del viento del parque"><button id="park-use-a" type="button" aria-pressed="true">Viento A</button><button id="park-use-b" type="button" aria-pressed="false">Viento B</button></div></div>
+          <label for="park-speed">Magnitud <small>m/s</small><input id="park-speed" type="number" min="0" max="30" step="any" aria-describedby="park-input-message"></label>
+          <label for="park-angle">Dirección del flujo <small>°</small><input id="park-angle" type="number" min="-180" max="180" step="any" aria-describedby="park-input-message"></label>
+          <button id="park-animate" class="quiet-button" type="button">Transición → B</button><button id="park-demo" class="quiet-button" type="button">Cargar demo de estelas</button>
+          <p id="park-input-message" class="field-message" role="status">Los controles editan la misma condición que el laboratorio.</p>
+        </div>
+        <div class="park-toolbar"><label for="layout-select">Distribución<select id="layout-select"></select></label><button id="align-button" class="quiet-button" type="button">Orientar hacia el viento</button><button id="optimize-button" class="button button-dark" type="button">Buscar mejor configuración ↗</button><button id="pause-button" class="quiet-button" type="button" aria-pressed="false">Pausar movimiento</button></div>
+        <div class="park-layout"><div class="park-scene"><div class="park-topline"><span><i class="status-dot"></i> VISTA EN PLANTA · N ↑</span><strong id="park-wind">—</strong></div><canvas id="wind-canvas" role="img" aria-label="Parque eólico en planta con viento, turbinas y estelas" aria-describedby="park-description">Los resultados por turbina se muestran en la tabla inferior.</canvas><div class="park-bottomline"><span>Terreno hipotético · ejes en metros</span><span>Frente de turbina: flecha ámbar</span></div></div>
+          <aside class="turbine-inspector"><h3>Inspeccionar turbina</h3><label for="turbine-select">Aerogenerador<select id="turbine-select"></select></label><div class="input-pair"><label for="turbine-x">Posición X <small>m</small></label><input id="turbine-x" type="number" min="80" max="1520" step="any"><label for="turbine-y">Posición Y <small>m</small></label><input id="turbine-y" type="number" min="80" max="1520" step="any"><label for="turbine-yaw">Orientación frontal <small>°</small></label><input id="turbine-yaw" type="number" min="-180" max="180" step="any"></div><p class="technical-note">El frente mira hacia donde llega el viento: para flujo hacia 0°, la orientación alineada es ±180°. Separación mínima: 240 m (3D).</p><p id="turbine-message" class="field-message" role="status">Edita posición u orientación.</p><div class="inspector-reading" id="turbine-reading"></div><label for="density">Densidad visual<select id="density"><option value="1">Equilibrada</option><option value="0.5">Ligera</option><option value="1.5">Alta</option></select></label></aside></div>
+        <div class="park-live-metrics" aria-label="Resultados actuales del parque"><div><span>Potencia eléctrica</span><strong id="park-power">—</strong></div><div><span>Pérdidas totales</span><strong id="park-loss">—</strong></div><div><span>Rendimiento relativo</span><strong id="park-performance">—</strong></div><a href="#hallazgos" id="results-link" class="underlined-link">Ver resultados ↗</a></div>
+        <p id="park-optimization" class="optimization-message" role="status">Prueba «Cargar demo de estelas» y después «Buscar mejor configuración».</p>
+        <p id="park-description" class="technical-note">Las estelas se expanden aguas abajo y reducen la velocidad local. El movimiento del aire se acelera visualmente ×20, igual en ambos ejes; el tiempo energético se define aparte. Aspas y trazas no representan turbulencia ni RPM reales.</p>
+        <div class="table-scroll"><table><caption>Estado individual · modelo educativo</caption><thead><tr><th>Turbina</th><th>Velocidad local</th><th>Desalineación</th><th>Potencia</th><th>Pérdida por estela</th><th>Estado</th></tr></thead><tbody id="turbine-table"></tbody></table></div>
       </div>
     </section>
 
-    <section class="insights-section section-pad" id="hallazgos">
-      <div class="page-width">
-        <div class="section-kicker reveal"><span>06 / LECTURA DE RESULTADOS</span><span class="kicker-line"></span><span>DECISIONES CON CONTEXTO</span></div>
-        <div class="insights-heading"><h2 class="display-title reveal">Una señal clara<br>para cada decisión.</h2><p class="reveal">Métricas demostrativas que conectan la geometría del viento con una lectura sencilla del potencial energético.</p></div>
-        <div class="dashboard">
-          <article class="metric-card metric-primary reveal">
-            <div class="metric-heading"><span>DIRECCIÓN DEL VIENTO</span><span class="metric-icon">↗</span></div>
-            <strong id="metric-direction">020<span>°</span></strong>
-            <div class="compass-graphic" aria-hidden="true"><i></i><b></b><span>N</span><em>E</em></div>
-            <p>Rumbo actual del flujo resultante</p>
-          </article>
-          <article class="metric-card reveal">
-            <div class="metric-heading"><span>VELOCIDAD RESULTANTE</span><span class="metric-icon">⌁</span></div>
-            <strong id="metric-speed">8,0 <small>m/s</small></strong>
-            <div class="metric-sparkline" aria-hidden="true"><svg viewBox="0 0 180 38" preserveAspectRatio="none"><path d="M0 29 C18 26 19 13 38 19 S59 31 78 21 S100 7 119 14 S147 29 180 5"></path></svg></div>
-            <p>Magnitud del vector de viento</p>
-          </article>
-          <article class="metric-card reveal">
-            <div class="metric-heading"><span>EFICIENCIA RELATIVA</span><span class="metric-icon">◎</span></div>
-            <strong id="metric-efficiency">87<span>%</span></strong>
-            <div class="meter-track"><span id="efficiency-bar"></span></div>
-            <p id="efficiency-note">Proxy geométrico de orientación</p>
-          </article>
-          <article class="metric-card reveal">
-            <div class="metric-heading"><span>ENERGÍA RELATIVA</span><span class="metric-icon">✳</span></div>
-            <strong id="metric-energy">69<span>/100</span></strong>
-            <div class="energy-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <p>Índice ilustrativo de recurso y alineación</p>
-          </article>
-          <article class="metric-card location-card reveal">
-            <div class="metric-heading"><span>SELECCIÓN DEL SITIO</span><span class="metric-icon">⌖</span></div>
-            <strong>Por evaluar</strong>
-            <div class="location-indicator"><i></i><i></i><i></i><i></i><i></i></div>
-            <p>Requiere topografía y series locales de viento</p>
-          </article>
-        </div>
-        <div class="interpretation reveal">
-          <span class="interpretation-mark">i</span>
-          <div><strong>¿Cómo leerlo?</strong><p>La alineación aumenta cuando el rumbo del viento se aproxima al eje idealizado de referencia. La energía relativa combina esa alineación con la magnitud; no representa producción eléctrica real.</p></div>
-          <a href="#cierre" aria-label="Ir a la conclusión">↘</a>
-        </div>
-      </div>
-    </section>
+    <section class="insights-section section-pad" id="hallazgos"><div class="page-width">
+      <div class="section-kicker"><span>06 / RESULTADOS</span><span class="kicker-line"></span><span>CADA CIFRA TIENE UN MODELO</span></div><div class="work-heading"><div><h2 class="display-title">La diferencia<br>se calcula.</h2><p>Estimaciones del escenario actual. No son datos de producción de La Guajira.</p></div><label for="hours">Intervalo de energía <small>horas</small><input id="hours" type="number" min="0.1" max="168" step="0.1" value="1"><span id="hours-message" class="field-message" role="status"></span></label></div>
+      <div class="data-grid"><article class="data-card"><span>Velocidad del viento</span><strong id="metric-speed">—</strong><small>m/s</small></article><article class="data-card"><span>Dirección del flujo</span><strong id="metric-direction">—</strong><small>° desde +X</small></article><article class="data-card"><span>Componentes X / Y</span><strong id="metric-components">—</strong><small>m/s</small></article><article class="data-card"><span>Aerogeneradores</span><strong id="metric-count">—</strong><small>unidades</small></article><article class="data-card"><span>Potencia de viento de referencia</span><strong id="metric-available">—</strong><small>MW · suma de áreas aisladas</small></article><article class="data-card"><span>Potencia eléctrica estimada</span><strong id="metric-power">—</strong><small>MW</small></article><article class="data-card"><span>Energía del intervalo</span><strong id="metric-energy">—</strong><small>MWh · viento constante</small></article><article class="data-card"><span>Rendimiento relativo</span><strong id="metric-performance">—</strong><small>% del parque ideal</small></article><article class="data-card"><span>Pérdida por desalineación</span><strong id="metric-yaw">—</strong><small>MW</small></article><article class="data-card"><span>Pérdida adicional por estelas</span><strong id="metric-wake">—</strong><small>MW</small></article></div>
+      <div class="comparison-panel"><div><span class="eyebrow">BÚSQUEDA ENTRE CANDIDATOS</span><h3>Antes / después</h3><p id="comparison-status" role="status">Ejecuta la búsqueda desde el parque. Se comparará el mismo viento, intervalo y número de turbinas.</p></div><div id="comparison-summary" class="comparison-summary"></div><div class="table-scroll"><table><caption>Candidatos válidos · ordenados por potencia</caption><thead><tr><th>Configuración</th><th>Potencia MW</th><th>Pérdidas MW</th><th>Resultado</th></tr></thead><tbody id="comparison-table"><tr><td colspan="4">Todavía no se ha ejecutado una búsqueda.</td></tr></tbody></table></div></div>
+      <details class="model-details" id="model-assumptions"><summary>Modelo, parámetros, fórmulas y fuentes</summary><div class="details-grid">
+      <div><h3>Potencia y energía</h3><p>Pᵥ = ½ρAV³; A = πD²/4. P₀ = min(Pnom, Pᵥ Cₚ η) dentro del rango operativo. P = P₀ cos³γ para cosγ &gt; 0; cero en otro caso. γ compara el frente de la turbina con la dirección de procedencia del viento.</p><p>ρ = 1,225 kg/m³ · D = 80 m · Cₚ = 0,42 · η = 0,92 · Pnom = 2 MW por turbina. Arranque: 3 m/s; corte: 25 m/s. E [MWh] = P [MW] × t [h], suponiendo viento constante.</p><p>La suma de potencia de viento usa áreas aisladas como referencia; no es energía extraíble contabilizada varias veces dentro de una estela.</p></div>
+      <div><h3>Estela Jensen simplificada</h3><p>δ = (1 − √(1 − Cₜ)) / (1 + 2ks/D)², con Cₜ = 0,8 y k = 0,05. s es la distancia aguas abajo, calculada mediante el producto punto. Radio de estela: D/2 + ks.</p><p>Se evalúa el centro de cada rotor dentro de la estela. Los déficits se escalan con la velocidad local del emisor y se combinan por raíz de suma de cuadrados, limitada a 1. Vlocal = V(1 − δcombinado).</p><p>Sin solapamiento parcial de rotores, deflexión por yaw, relieve ni turbulencia. Cₜ constante para máquinas activas. Es una adaptación educativa, no un modelo de diseño certificado.</p></div>
+      <div><h3>Función objetivo y pérdidas</h3><p>Maximizar ΣPᵢ. Se evalúan la configuración actual, diseños predefinidos y rotaciones de 0°, 30°, 60° y 90°, orientando los frentes al viento. Se rechazan centros fuera de 80–1520 m o separados menos de 240 m.</p><p>Pérdida yaw = Pideal − Psin estela; pérdida estela = Psin estela − Preal. Rendimiento = Preal / Pideal. Mejora = 100(Pdespués − Pantes)/Pantes, no definida si Pantes = 0. El resultado es el mejor candidato evaluado, no un óptimo global.</p></div>
+      <div><h3>Fuentes y alcance</h3><p><a href="https://wes.copernicus.org/articles/7/1137/2022/wes-7-1137-2022.html" target="_blank" rel="noopener">LoCascio et al., 2022 · modelo Jensen y optimización ↗</a></p><p><a href="https://www.energy.gov/cmei/systems/windexchange/small-wind-guidebook" target="_blank" rel="noopener">Department of Energy · potencia y producción eólica ↗</a></p><p><a href="https://ideam.gov.co/atencion-y-servicios-a-la-ciudadania/preguntas-frecuentes/en-colombia-donde-hace-mas-viento" target="_blank" rel="noopener">IDEAM · contexto regional de La Guajira ↗</a></p><p>Todos los parámetros de máquinas, terreno y escenarios son hipotéticos. No se predice producción anual ni se recomienda un emplazamiento real.</p></div></div></details>
+    </div></section>
 
     <section class="conclusion-section section-pad" id="cierre">
       <div class="page-width conclusion-grid">
         <div class="conclusion-main reveal"><span class="conclusion-label">CONCLUSIÓN</span><h2 class="display-title">Diseñar mejor<br>empieza por<br><em>leer el viento.</em></h2></div>
-        <div class="conclusion-copy reveal"><p class="lead">El cálculo vectorial ofrece una forma directa de traducir dirección y velocidad en información útil para el diseño eólico.</p><p>Al descomponer y comparar vectores, podemos visualizar cambios de flujo, cuantificar la alineación con una turbina y formular preguntas más precisas sobre ubicación y orientación.</p><p>En un proyecto real, estas herramientas se complementan con series meteorológicas, topografía, turbulencia, estelas, restricciones ambientales y modelos de producción. La matemática abre el análisis; los datos del sitio lo hacen confiable.</p><a class="underlined-link" href="#exposicion">Ver puntos para exponer <span aria-hidden="true">↗</span></a></div>
+        <div class="conclusion-copy reveal"><p class="lead">El cálculo vectorial ofrece una forma directa de traducir dirección y velocidad en información útil para el diseño eólico.</p><p>Al descomponer y comparar vectores, podemos orientar las turbinas y calcular qué máquinas quedan aguas abajo. La búsqueda compara distribuciones bajo el mismo viento y selecciona la de mayor potencia estimada entre las evaluadas.</p><p>En un proyecto real, estas herramientas se complementan con series meteorológicas, topografía, turbulencia, estelas, restricciones ambientales y modelos de producción. La matemática abre el análisis; los datos del sitio lo hacen confiable.</p><a class="underlined-link" href="#exposicion">Ver puntos para exponer <span aria-hidden="true">↗</span></a></div>
       </div>
     </section>
 
@@ -264,7 +230,7 @@
         <div class="takeaway-list">
           <div class="takeaway-row reveal"><span>01</span><p>El viento se describe mediante un vector con magnitud y dirección.</p><span class="takeaway-arrow">↗</span></div>
           <div class="takeaway-row reveal"><span>02</span><p>Sus componentes permiten analizar el flujo en los ejes del terreno.</p><span class="takeaway-arrow">↗</span></div>
-          <div class="takeaway-row reveal"><span>03</span><p>La suma vectorial combina mediciones y condiciones de viento.</p><span class="takeaway-arrow">↗</span></div>
+          <div class="takeaway-row reveal"><span>03</span><p>La diferencia V₂ − V₁ describe el cambio; la suma es una operación algebraica.</p><span class="takeaway-arrow">↗</span></div>
           <div class="takeaway-row reveal"><span>04</span><p>El ángulo entre viento y turbina ayuda a evaluar su alineación.</p><span class="takeaway-arrow">↗</span></div>
           <div class="takeaway-row reveal"><span>05</span><p>La ubicación óptima requiere integrar cálculo, datos del sitio e ingeniería.</p><span class="takeaway-arrow">↗</span></div>
         </div>
@@ -273,6 +239,7 @@
     </section>
   </main>
 
+  <nav id="presentation-bar" class="presentation-bar" aria-label="Recorrido de exposición" hidden><button id="presentation-prev" type="button">← Anterior</button><span id="presentation-label"></span><button id="presentation-next" type="button">Siguiente →</button><button id="presentation-exit" type="button">Salir ✕</button></nav>
   <footer class="site-footer">
     <div class="page-width footer-inner">
       <a class="brand footer-brand" href="#inicio"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>viento<span class="brand-light">/</span>contexto</span></a>
